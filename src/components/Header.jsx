@@ -19,10 +19,11 @@ const Header = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
                 <div className="flex items-center gap-3">
                     <h1 className="text-3xl sm:text-4xl font-bold cursor-pointer">
-    <a href="https://yesgram.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a href="https://yesgram.vercel.app/">
         Yesgram!
     </a>
 </h1>
+
 
                 </div>
 
