@@ -46,7 +46,7 @@ const Home = () => {
     return (
         <>
             <Header />
-            <div className="p-8 min-h-[84vh] flex flex-col items-center justify-center">
+            <div className="p-8 min-h-[84vh] flex flex-col items-center justify-center mt-[120px]">
                 {!user ? (
                     <div className="text-center space-y-6">
                         <p className="text-2xl font-semibold text-gray-700">
