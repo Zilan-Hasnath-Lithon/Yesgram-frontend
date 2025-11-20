@@ -19,13 +19,16 @@ const Header = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
                 <div className="flex items-center gap-3">
                     <h1 className="text-3xl sm:text-4xl font-bold cursor-pointer">
-                        <Link to="/">Yesgram!</Link>
-                    </h1>
+    <a href="https://yesgram.vercel.app/" target="_blank" rel="noopener noreferrer">
+        Yesgram!
+    </a>
+</h1>
+
                 </div>
 
 
 
-                {/* For Desktop */}
+               
                 <nav className="hidden md:flex items-center gap-8 text-2xl">
                     <Link
                         to="/"
@@ -64,7 +67,7 @@ const Header = () => {
                         <MdAccountCircle />
                     </Link>
 
-                    {/* Mobile Menu Button */}
+                    
                     <button
                         className="md:hidden text-2xl"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -74,7 +77,7 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+          
             {menuOpen && (
                 <nav className="md:hidden bg-white shadow-md w-full absolute top-16 left-0 flex flex-col items-center py-4 gap-4 text-2xl">
                     <Link
