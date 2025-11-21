@@ -51,7 +51,7 @@ const Home = () => {
                 {!user ? (
                     <div className="text-center space-y-8 bg-white p-10 rounded-2xl shadow-xl border border-gray-200 max-w-xl w-full">
                         <p className="text-3xl font-bold text-gray-800">
-                            Please login or signup to enjoy personalized content
+                            Please Login or Signup to enjoy personalized content.
                         </p>
 
                         <div className="flex gap-6 justify-center">
