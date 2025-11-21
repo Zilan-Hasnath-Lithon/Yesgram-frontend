@@ -30,7 +30,7 @@ const Home = () => {
             }
             fetchFeed()
         } else {
-            setLoading(false) // stop loading if no user
+            setLoading(false)
         }
     }, [apiUrl])
 
@@ -46,64 +46,76 @@ const Home = () => {
     return (
         <>
             <Header />
-            <div className=" min-h-[84vh] flex flex-col items-center justify-center pt-[72px]">
+            <div className="min-h-[84vh] flex flex-col items-center justify-center pt-[72px] px-4">
+
                 {!user ? (
-                    <div className="text-center space-y-6">
-                        <p className="text-2xl font-semibold text-gray-700">
-                            Please login/signup to enjoy quality content
+                    <div className="text-center space-y-8 bg-white p-10 rounded-2xl shadow-xl border border-gray-200 max-w-xl w-full">
+                        <p className="text-3xl font-bold text-gray-800">
+                            Please login or signup to enjoy personalized content
                         </p>
-                        <div className="flex gap-4 justify-center">
+
+                        <div className="flex gap-6 justify-center">
                             <button
                                 onClick={() => navigate("/login")}
-                                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                                className="px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-blue-700 transition"
                             >
                                 Login
                             </button>
+
                             <button
                                 onClick={() => navigate("/signup")}
-                                className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                                className="px-8 py-3 bg-green-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-green-700 transition"
                             >
                                 Signup
                             </button>
                         </div>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
+
                         {feed.length === 0 ? (
                             <p className="col-span-full text-center text-gray-500">
                                 No content available for your interests.
                             </p>
                         ) : (
                             feed.map((item, index) => (
-                                <div key={index} className="flex flex-col items-center">
+                                <div
+                                    key={index}
+                                    className="flex flex-col bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition"
+                                >
                                     {item.media === "Youtube" && (
                                         <iframe
-                                            className="w-full h-52 rounded-[10px]"
+                                            className="w-full h-60 rounded-xl"
                                             src={item.link
-                                                .replace('watch?v=', 'embed/')
-                                                .replace('youtu.be/', 'www.youtube.com/embed/')}
+                                                .replace("watch?v=", "embed/")
+                                                .replace("youtu.be/", "www.youtube.com/embed/")}
                                             allowFullScreen
                                             title={item.title}
                                         ></iframe>
                                     )}
+
                                     {item.media === "Facebook" && (
                                         <iframe
-                                            className="w-full h-52 rounded-[10px]"
-                                            src={item.link.includes('/videos/')
-                                                ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(item.link)}`
-                                                : `https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(item.link)}`}
+                                            className="w-full h-60 rounded-xl"
+                                            src={
+                                                item.link.includes("/videos/")
+                                                    ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(item.link)}`
+                                                    : `https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(item.link)}`
+                                            }
                                             allowFullScreen
-                                            title={item.title || 'Facebook Post'}
+                                            title={item.title || "Facebook Post"}
                                         ></iframe>
                                     )}
+
                                     {item.media === "Instagram" && (
                                         <blockquote
-                                            className="instagram-media w-full"
+                                            className="instagram-media w-full rounded-xl overflow-hidden"
                                             data-instgrm-permalink={item.link}
                                             data-instgrm-version="14"
                                         ></blockquote>
                                     )}
-                                    <p className="text-lg font-semibold mt-2 text-center">
+
+                                    <p className="text-lg font-semibold mt-3 text-center text-gray-800">
                                         {item.title} || {item.category}
                                     </p>
                                 </div>
